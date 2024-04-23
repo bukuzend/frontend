@@ -18,6 +18,7 @@
 import axios from 'axios'
 import BugerNav from '../components/BugerNav.vue'
 import Dragonfly from '../components/DragonComp.vue'
+import Url from '@/Url';
 
 const axiosC = axios.create({
     withCredentials: true
@@ -29,7 +30,7 @@ export default {
     },
 
     async beforeCreate() {
-        axiosC.get("http://localhost:3000/api/profile/catched")
+        axiosC.get(`${Url}/api/profile/catched`)
             .then(res => {
                 this.items = res.data;
             })
@@ -37,7 +38,8 @@ export default {
     data() {
         return {
             search: "",
-            items: []
+            items: [],
+            url:Url
         }
     },
 

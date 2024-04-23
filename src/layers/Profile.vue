@@ -4,7 +4,7 @@
     <div class="profileInf">
         <div class="profileIcon">
             <!-- <img src="http://localhost:3000/api/profile/icon/download" class="image" alt="profileIcon"> -->
-            <img src="http://localhost:3000/api/profile/icon" class="image"> 
+            <img :src="`${url}/api/profile/icon`" class="image"> 
         </div>
         <div class="profileName">
             <p>{{ fname }} {{ sname }} </p>
@@ -23,6 +23,7 @@
 <script>
 import axios from 'axios';
 import BugerNav from '@/components/BugerNav.vue';
+import Url from '@/Url';
 
 const axiosC = axios.create({
     withCredentials: true
@@ -37,11 +38,12 @@ export default {
             fname: "",
             sname: "",
             lvl: null,
-            emoji: ""
+            emoji: "",
+            url: Url,
         }
     },
     async beforeCreate() {
-        const res = await axiosC.get("http://localhost:3000/api/profile");
+        const res = await axiosC.get(`${Url}/api/profile`);
             this.fname = res.data[0].fname;
             this.sname = res.data[0].sname;
             this.lvl = res.data[0].lvl;
@@ -50,12 +52,9 @@ export default {
             console.log(res);
     },
     methods: {
-        async getInf() {
-            
-        },
 
         Exit() {
-            axiosC.get("http://localhost:3000/api/profile/unauth")
+            axiosC.get(`${this.url}/api/profile/unauth`)
                 .then(res => {
                     console.log(res);
                     this.$router.push("/login")

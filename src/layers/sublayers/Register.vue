@@ -37,6 +37,7 @@
 
 <script>
 import axios from 'axios';
+import Url from '@/Url';
     
     const axiosC = axios.create({
         withCredentials: true
@@ -56,12 +57,13 @@ export default {
             errorEmail:false,
             errorFname:false,
             errorSname:false,
-            errorMessage: ["Заполните поле","Заполните поле","Заполните поле","Заполните поле","Заполните поле"]
+            errorMessage: ["Заполните поле","Заполните поле","Заполните поле","Заполните поле","Заполните поле"],
+            url: Url,
         }
     },
 
     beforeCreate() {
-            axiosC.post("http://localhost:3000/api/auth/login")
+            axiosC.post(`${this.url}/api/auth/login`)
                 .catch(res => {
                     try{
                     if(res.response.status === 300 && res.response.data === "authed") {
@@ -84,7 +86,7 @@ export default {
                 this.errorPassword = false
                 this.errorFname = false 
                 this.errorSname = false
-                axiosC.post("http://localhost:3000/api/auth/register", {
+                axiosC.post(`${this.url}/api/auth/register`, {
                     login:this.login,
                     password:this.password,
                     email:this.email,

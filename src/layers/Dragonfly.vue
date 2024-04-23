@@ -2,7 +2,7 @@
    <div class="conteiner">
         <BugerNav class="burgerNav"/>
         <div class="dragonfly">
-            <img :src="`http://localhost:3000/api/lib/${param}/download`">
+            <img :src="`${utl}/api/lib/${param}/download`">
             <p> {{ item.name }}</p>
         </div>
         <div class="dragonDesc">
@@ -15,6 +15,7 @@
 <script>
 import BugerNav from '@/components/BugerNav.vue';
 import axios from 'axios';
+import Url from '@/Url';
 
 const axiosC = axios.create({
     withCredentials: true
@@ -26,14 +27,15 @@ export default{
     },
 
     async beforeCreate() {
-        const res = await axiosC.get(`http://localhost:3000/api/lib/${this.$route.params.name}`);
+        const res = await axiosC.get(`${this.url}/api/lib/${this.$route.params.name}`);
         this.item = res.data;
     },
 
     data() {
         return {
             item: "",
-            param: this.$route.params.name
+            param: this.$route.params.name,
+            url: Url
         }
     }
 }

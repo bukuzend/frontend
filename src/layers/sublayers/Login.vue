@@ -16,6 +16,7 @@
 
 <script>
     import axios from 'axios';
+    import Url from '@/Url';
     
     const axiosC = axios.create({
         withCredentials: true
@@ -27,11 +28,12 @@
                 login:"",
                 password:"",
                 error: false,
-                errorMessage: "Неверный логин или пароль."
+                errorMessage: "Неверный логин или пароль.",
+                url: Url
             }
         },
         beforeCreate() {
-            axiosC.post("http://localhost:3000/api/auth/login")
+            axiosC.post(`${this.url}/api/auth/login`)
                 .catch(res => {
                     try{
                     if(res.response.status === 300 && res.response.data === "authed") {
@@ -41,12 +43,13 @@
         },
         methods: {
             async clkAuht() {
-                axiosC.post("http://localhost:3000/api/auth/login",{
+                axiosC.post(`${this.url}/api/auth/login`,{
                     login:this.login,
                     password: this.password
                 }).then(res => {
                     this.$router.push({path:"/profile"})
                 }).catch(err => {
+                    console.log(err);
                     this.error = true;
                 })
             }

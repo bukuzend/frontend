@@ -35,6 +35,7 @@ import BugerNav from '../components/BugerNav.vue'
 import QuestionsVue from '../components/Questions.vue';
 import nodes from "../DragNodes"
 import FinalPageVue from '../components/FinalPage.vue';
+import Url from '@/Url';
 
 
 
@@ -60,6 +61,8 @@ export default {
 
             latitude: null,
             longitude: null,
+
+            url: Url,
 
 
         }
@@ -153,7 +156,7 @@ export default {
                 formData.append("dragon", /* this.final */ "NameDrag1")
 
                 
-                await axiosC.post("http://localhost:3000/api/profile/send", formData)
+                await axiosC.post(`${this.url}/api/profile/send`, formData)
                     .catch(err => console.log(err.message))
 
 
