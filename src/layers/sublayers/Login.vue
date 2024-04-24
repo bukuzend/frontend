@@ -33,7 +33,7 @@
             }
         },
         beforeCreate() {
-            axiosC.post(`${this.url}/api/auth/login`)
+            axiosC.post(`${Url}/api/auth/login`)
                 .catch(res => {
                     try{
                     if(res.response.status === 300 && res.response.data === "authed") {

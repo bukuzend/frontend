@@ -2,7 +2,7 @@
    <div class="conteiner">
         <BugerNav class="burgerNav"/>
         <div class="dragonfly">
-            <img :src="`${url}/api/lib/${param}/download`">
+            <img :src="`http://185.185.71.250:3000/api/lib/${param}/download`">
             <p> {{ item.name }}</p>
         </div>
         <div class="dragonDesc">
@@ -27,7 +27,7 @@ export default{
     },
 
     async beforeCreate() {
-        const res = await axiosC.get(`${this.url}/api/lib/${this.$route.params.name}`);
+        const res = await axiosC.get(`${Url}/api/lib/${this.$route.params.name}`);
         this.item = res.data;
     },
 

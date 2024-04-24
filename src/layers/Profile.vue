@@ -4,7 +4,7 @@
     <div class="profileInf">
         <div class="profileIcon">
             <!-- <img src="http://localhost:3000/api/profile/icon/download" class="image" alt="profileIcon"> -->
-            <img :src="`${url}/api/profile/icon`" class="image"> 
+            <img :src="`http://185.185.71.250:3000/api/profile/icon`" class="image"> 
         </div>
         <div class="profileName">
             <p>{{ fname }} {{ sname }} </p>
