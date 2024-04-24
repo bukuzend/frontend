@@ -2,7 +2,7 @@
    <div class="conteiner">
         <BugerNav class="burgerNav"/>
         <div class="dragonfly">
-            <img :src="`${utl}/api/lib/${param}/download`">
+            <img :src="`${url}/api/lib/${param}/download`">
             <p> {{ item.name }}</p>
         </div>
         <div class="dragonDesc">
