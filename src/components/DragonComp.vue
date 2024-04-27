@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     getPath() {
-      return `http://localhost:3000/api/lib/${this.item}/download`
+      return `http://185.185.71.250:3000/api/lib/${this.item}/download`
     }
   }
 
