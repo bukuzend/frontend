@@ -60,15 +60,13 @@
 
 <style scoped>
     .container{
-        display: flex;
-        align-items: center;
-        justify-content: center;
         width: 100vw;
         height: 100vh;
 
         background-color: rgba(0,0,0,0);
         
     }
+
     .field {
         display: flex;
         flex-direction: column;
@@ -78,7 +76,10 @@
         border: 1px solid black;
         border-radius: 30px ;
         width: 85vw;
-        height: 50vh;
+        height: 300px;
+
+        position: absolute;
+        top: 50px;
     
         
     }
@@ -87,7 +88,9 @@
         flex-direction: column;
         align-items: center;
         width: 90%;
-        gap: 30px;
+        gap: 30px;  
+
+        margin-top: 15px;
     }
 
     input {

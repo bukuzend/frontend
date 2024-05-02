@@ -4,7 +4,7 @@
     <div class="profileInf">
         <div class="profileIcon">
             <!-- <img src="http://localhost:3000/api/profile/icon/download" class="image" alt="profileIcon"> -->
-            <img :src="`http://185.185.71.250:3000/api/profile/icon`" class="image"> 
+            <img :src="`https://collector35.ru/api/profile/icon`" class="image"> 
         </div>
         <div class="profileName">
             <p>{{ fname }} {{ sname }} </p>
@@ -43,7 +43,11 @@ export default {
         }
     },
     async beforeCreate() {
-        const res = await axiosC.get(`${Url}/api/profile`);
+        const res = await axiosC.get(`${Url}/api/profile`)
+                                .catch(res => {
+                    console.log(res);
+                    this.$router.push("/login")
+                });
             this.fname = res.data[0].fname;
             this.sname = res.data[0].sname;
             this.lvl = res.data[0].lvl;
@@ -70,9 +74,9 @@ export default {
 <style scoped> 
 
     .burgerNav {
-        position: absolute;
-
-        top:30px;
+        margin-top: 20px;
+        align-self: flex-end;
+        margin-right: 20px;
     }
 
     .conteiner {
@@ -82,7 +86,6 @@ export default {
 
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
         align-items: center;
     }
     .profileInf {
@@ -92,7 +95,8 @@ export default {
         flex-direction: column;
         align-items: center;
 
-        gap:15px;
+        margin-top: 15px;
+
     }
     .profileIcon {
         width: 70%;
@@ -116,7 +120,8 @@ export default {
 
     .exit {
         position: absolute;
-        bottom: 3vh;
+        top: 23px;
+        left: 20px;
     }
 
     .exitBtn {

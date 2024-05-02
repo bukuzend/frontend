@@ -57,9 +57,9 @@ export default {
 
 <style scoped>
     .burgerNav {
-        position: absolute;
-
-        top:30px;
+        margin-top: 20px;
+        align-self: flex-end;
+        margin-right: 20px;
     }
     .conteiner {
         width: 100vw;
@@ -67,14 +67,12 @@ export default {
 
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
         align-items: center;
 
     }
 
     .search {
-        position: absolute;
-        top: 100px;
+        margin-top: 20px;
 
         width: 90%;
 
@@ -98,9 +96,7 @@ export default {
 
         gap: 20px;
 
-        position: absolute;
-
-        top: 20%;
+        margin-top:30px;
     }
 
     .dragon {

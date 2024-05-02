@@ -139,8 +139,10 @@ export default {
         border: 1px solid black;
         border-radius: 30px ;
         width: 85vw;
-        height: 70vh;
+        
     
+        position: absolute;
+        top: 50px;
         
     }
     .inputInf {
@@ -148,7 +150,9 @@ export default {
         flex-direction: column;
         align-items: center;
         width: 90%;
-        gap: 30px;
+        gap: 25px;
+
+        margin-top: 15px;
     }
 
     .inField {
@@ -179,8 +183,13 @@ export default {
     .error {
         overflow-wrap: break-word;
         position: fixed;
-        width: 100%;
         color: red;
+
+        background: rgba(255,255,255,0.7);
+        border-radius: 5px;
+        padding: 1px 2px;
+        
+        justify-self: flex-start;
     }
     
     .btn {
@@ -190,7 +199,10 @@ export default {
         align-items: center;
 
         width: 100%;
-        gap:5px
+        gap:5px;
+
+        margin-top: 35px ;
+        margin-bottom: 15px;
 
     }
 

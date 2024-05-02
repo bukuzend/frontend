@@ -48,5 +48,11 @@
   height: 100vh;
   width: 100vw;
  }
+
+ .router{
+  height: 100vh;
+  width: 100vw;
+
+ }
  
 </style>

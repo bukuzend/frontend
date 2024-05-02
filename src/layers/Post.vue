@@ -26,6 +26,8 @@
             v-on:finSend="finSend"/>
     </div>
 
+    <div class="backFin" v-if="end"></div>
+
   </div>
 </template>
 
@@ -70,8 +72,15 @@ export default {
     components: {
         BugerNav, QuestionsVue, FinalPageVue
     },
+    async beforeCreate() {
+        const res = await axiosC.get(`${Url}/api/profile`)
+                                .catch(res => {
+                    console.log(res);
+                    this.$router.push("/login")
+                });
+                 
+    },
    
-
     methods: {
 
         ansQuest(ans){
@@ -170,16 +179,18 @@ export default {
 
     
     .burgerNav {
-        position: absolute;
-        top: 30px;
+        margin-top: 20px; 
+        align-self: flex-end;
+        margin-right: 20px;
+        z-index: 1;
     }
-
+    
     .container {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap:30px;
+        justify-content: flex-start;
     }
+
 
     #image {
         display: none;
@@ -191,12 +202,13 @@ export default {
 
     .camera {
         position: absolute;
-        top:10vh;
+        margin-top:10px;
+        top:70px;
     }
 
 
     .picture {
-        height: 40vh;
+        height: 250px;
         width: 80vw;
 
         aspect-ratio: 16/9;
@@ -256,8 +268,8 @@ export default {
 
     .questions {
         position: absolute;
-        top: 55vh;
-
+        top: 320px;
+        margin-top: 20px ;
         width: 85vw;
     }
 
@@ -265,7 +277,19 @@ export default {
         position: absolute;
         top: 20vh;
         width: 90vw;
-        height: 50vh;
+        height: 350px;
+        z-index: 3;
+    }
+
+    .backFin {
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        top: 0px;
+
+        z-index: 2;
+        overflow-x: hidden;
     }
 
 </style>
