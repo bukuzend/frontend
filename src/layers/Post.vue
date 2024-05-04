@@ -101,7 +101,7 @@ export default {
             } else{
                 if(ans){
                     if(!this.node.child) {
-                        this.finMessage = "Поздарвляем!"
+                        this.finMessage = "Поздравляем!"
                         this.final = this.node.answer;
                         this.end = true
                     } else {

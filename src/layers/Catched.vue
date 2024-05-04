@@ -9,16 +9,21 @@
                 <!-- Out users images of dragonflys -->
                 <router-link class="link" :to="{path:`/library/${item.dragon}`}"><Dragonfly :item="item.dragon"/></router-link>
             </div>
+            <div class="waiting" v-for="item of itemsW" :key="item.name">
+                <router-link class="link" :to="{path:`/library/${item.name}`}"><DragonCompWait :item="item"/></router-link>
+            </div>
         </div>
 
     </div>
 </template>
 
 <script>
-import axios from 'axios'
-import BugerNav from '../components/BugerNav.vue'
-import Dragonfly from '../components/DragonComp.vue'
+import axios from 'axios';
+import BugerNav from '../components/BugerNav.vue';
+import Dragonfly from '../components/DragonComp.vue';
+import DragonCompWait from '@/components/DragonCompWait.vue';
 import Url from '@/Url';
+
 
 const axiosC = axios.create({
     withCredentials: true
@@ -26,19 +31,24 @@ const axiosC = axios.create({
 
 export default {
     components: {
-        BugerNav, Dragonfly
+        BugerNav, Dragonfly, DragonCompWait
     },
 
     async beforeCreate() {
-        axiosC.get(`${Url}/api/profile/catched`)
+        await axiosC.get(`${Url}/api/profile/catched`)
             .then(res => {
                 this.items = res.data;
-            })
+            });
+        await axiosC.get(`${Url}/api/profile/waiting`)
+            .then(res => {
+                this.itemsW = res.data;
+            });
     },
     data() {
         return {
             search: "",
             items: [],
+            itemsW: [],
             url:Url
         }
     },
@@ -49,7 +59,13 @@ export default {
                 return item.dragon.toLowerCase().includes(this.search.toLowerCase())})
             if(this.search === null) return this.items
             else return filtered
-        }
+        },
+        // itemsWait() {
+        //     const filtered = this.itemsW.filter(item => {
+        //         return item.dragon.toLowerCase().includes(this.search.toLowerCase())})
+        //     if(this.search === null) return this.itemsW
+        //     else return filtered
+        // }
     }
 
 }
@@ -99,8 +115,9 @@ export default {
         margin-top:30px;
     }
 
-    .dragon {
-        width: 45%;
+    .dragon, .waiting {
+        width: 150px;
     }
+
 
 </style>

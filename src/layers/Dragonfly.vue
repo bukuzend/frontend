@@ -44,9 +44,9 @@ export default{
 <style scoped>
 
     .burgerNav {
-        position: absolute;
-
-        top:30px;
+        margin-top: 20px;
+        align-self: flex-end;
+        margin-right: 20px;
     }
 
     .conteiner {
@@ -60,7 +60,6 @@ export default{
         align-items: center;
 
 
-        padding-top: 80px;
         gap:40px;
     }
 

@@ -5,7 +5,7 @@
       <img :src="getPath()">
     </div>
     <div class="name">
-      <p>{{ item }}</p>
+      <p>{{ item.name }}</p>
     </div>
   </div>
   
@@ -15,13 +15,13 @@
 export default {
   props: {
     item: {
-      type: String,
+      type: Object,
       reqired: true
     }
   },
   methods: {
     getPath() {
-      return `https://collector35.ru/api/lib/${this.item}/download`
+      return `https://collector35.ru/api/profile/waiting/${this.item.image}`
     }
   }
 
@@ -42,6 +42,7 @@ export default {
   }
   .imag img {
     width: 100%;
+    filter: grayscale(100%);
   }
 
   .name {
