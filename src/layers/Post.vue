@@ -155,7 +155,7 @@ export default {
                 })
             },
 
-            async finSend(final){
+            async finSend(){
                 const file = document.querySelector(".input").files[0];
 
                 const formData = new FormData();
