@@ -162,7 +162,7 @@ export default {
 
                 formData.append("image", file);
                 formData.append("location", `${this.latitude} ${this.longitude}`)
-                formData.append("dragon", /* this.final */ "NameDrag1")
+                formData.append("dragon", this.final )
 
                 
                 await axiosC.post(`${this.url}/api/profile/send`, formData)
