@@ -32,6 +32,7 @@ export default {
 
   .dragonComp {
     width: 100%;
+    height: 210px;
     display: flex;
     flex-direction: column;
   }
@@ -51,9 +52,7 @@ export default {
   }
 
   .name p{
-    display: flex;
-    justify-content: center;
-
+    text-align: center;
     font-size: 20px;
   }
 

@@ -47,6 +47,7 @@ export default{
         margin-top: 20px;
         align-self: flex-end;
         margin-right: 20px;
+        z-index: 1;
     }
 
     .conteiner {

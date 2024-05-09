@@ -42,7 +42,7 @@ const nodes = {
     PyrN:{
         help:null,
         question:["Брюшко у особей обоих полов имеет красную или охристо-желтую окраску с черным рисунком. Есть светлоокрашенная доплечевая полоса. Глаза самцов также красные."],
-        answer:"Pyrrhosoma nymphyla",
+        answer:"Pyrrhosoma nymphula",
 
         next: "EryN",
         child:null,
@@ -66,7 +66,7 @@ const nodes = {
     CoeioN:{
         help:"Pterostigma",
         question:["Птеростигма на обоих крыльях одноцветная, Самцы имеют, как правило, полностью голубую окраску, самки - зелёную. Металлический отлив отсутствует."],
-        answer:"Conenagrion",
+        answer:"Coenagrion",
 
         next: null,
         child:null,
@@ -137,7 +137,7 @@ const nodes = {
     SomM:{
         help:null,
         question:["Имеются жёлтые пятна по бокам головые, соединённые желтой линией"],
-        answer:"Somatichlora metallica",
+        answer:"Somatochlora metallica",
 
         next: null,
         child:null,
@@ -198,7 +198,7 @@ const nodes = {
     SymF:{
         help:null,
         question:["Оба пола легко узнаются по наличию по крупным пятнам янтарного цвета в основании задних крыльев. Окраска тела самцов рыжеватая, у самок - желтая"],
-        answer:"Sympetrum flayeolum",
+        answer:"Sympetrum flaveolum",
 
         next: "SymS",
         child:null,

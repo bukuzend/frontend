@@ -32,7 +32,7 @@ export default {
     async beforeCreate() {
         axiosC.get(`${Url}/api/lib`)
         .then(res => {
-            this.items = res.data;
+            this.items = res.data.filter(item => item.dragon_id != 25);
             return this.items
         })
         .catch(res => {
@@ -66,6 +66,7 @@ export default {
         margin-top: 20px;
         align-self: flex-end;
         margin-right: 20px;
+        z-index: 1;
     }
     .conteiner {
         width: 100vw;
