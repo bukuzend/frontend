@@ -20,6 +20,10 @@
         selected: true,
       
     }},
+
+    beforeCreate() {
+      window.screen.orientation.lock('portrait');
+    }
   }
 </script>
 
