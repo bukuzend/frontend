@@ -6,7 +6,6 @@
         </div>
         <div class="dragonflys">
             <div class="dragon" v-for="item of itemsFil" :key="item.dragon"> 
-                <!-- Out users images of dragonflys -->
                 <router-link class="link" :to="{path:`/library/${item.dragon}`}"><Dragonfly :item="item.dragon"/></router-link>
             </div>
             <div class="waiting" v-for="item of itemsW" :key="item.name">
@@ -118,6 +117,7 @@ export default {
 
     .dragon, .waiting {
         width: 150px;
+        margin-bottom: 30px;
     }
 
 
