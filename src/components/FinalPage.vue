@@ -59,6 +59,7 @@ export default {
 
     .result {
         font-weight: bold;
+        font-size: 20px;
     }
     
     .butFin {

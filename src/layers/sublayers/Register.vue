@@ -59,6 +59,7 @@ export default {
             errorSname:false,
             errorMessage: ["Заполните поле","Заполните поле","Заполните поле","Заполните поле","Заполните поле"],
             url: Url,
+            symbols: "!?./,\\|=+-_\'\" ",
         }
     },
 
@@ -81,26 +82,31 @@ export default {
             this.sname === "" && (this.errorSname = true);
 
             if((this.login && this.email && this.password && this.fname && this.sname) !== ""){
-                this.errorLogin = false 
-                this.errorEmail = false 
-                this.errorPassword = false
-                this.errorFname = false 
-                this.errorSname = false
-                axiosC.post(`${this.url}/api/auth/register`, {
-                    login:this.login,
-                    password:this.password,
-                    email:this.email,
-                    fname:this.fname,
-                    sname:this.sname
-                }).then(res => {
-                    console.log(res);
-                    this.$router.push({path:"/login"})
-                }).catch(err => {
-                    this.errorLogin = true
-                    this.errorMessage[0] = "Пользователь существует"
-                    console.log(err);
-                })
-
+                if(this.login.split('').filter(item => this.symbols.split('').includes(item)).length) {
+                    this.errorLogin = true;
+                    this.errorMessage[0] = `Логин не должен содержать пробелов и символов ${this.symbols}`
+                }
+                else {
+                    this.errorLogin = false 
+                    this.errorEmail = false 
+                    this.errorPassword = false
+                    this.errorFname = false 
+                    this.errorSname = false
+                    axiosC.post(`${this.url}/api/auth/register`, {
+                        login:this.login,
+                        password:this.password,
+                        email:this.email,
+                        fname:this.fname,
+                        sname:this.sname
+                    }).then(res => {
+                        console.log(res);
+                        this.$router.push({path:"/login"})
+                    }).catch(err => {
+                        this.errorLogin = true
+                        this.errorMessage[0] = "Пользователь существует"
+                        console.log(err);
+                    })
+                }        
                 
             }else {
                 if(this.login === "") this.errorMessage[0] = "Заполните поле";
@@ -215,7 +221,7 @@ export default {
         height: 40px;
         width: 70%;
 
-        font-size: 20px;
+        font-size: 18px;
         font-weight: bold;
     }
 

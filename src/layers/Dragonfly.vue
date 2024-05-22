@@ -81,9 +81,11 @@ export default{
     }
 
     .dragonDesc {
-        padding-left: 5%;
-        align-self: flex-start;
+        padding: 5px 3px;
+        align-self: center;
         width: 90%;
+        background: rgba(255,255,255,0.7);
+        border-radius: 10px;
     }
 
     .dragonDesc p{

@@ -29,6 +29,7 @@
   padding: 0px;
   box-sizing: border-box;
   font-family: 'Times New Roman', Times, serif;
+  transition: all 0.3s;
  }
  
  

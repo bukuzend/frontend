@@ -6,7 +6,6 @@
         </div>
         <div class="dragonflys">
             <div class="dragon" v-for="item of itemsFil" :key="item.name">
-                
                 <router-link class="link" :to="{path:`/library/${item.name}`}"><Dragonfly :item="item.name"/></router-link>
             </div>
         </div>
