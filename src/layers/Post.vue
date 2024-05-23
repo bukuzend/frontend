@@ -27,6 +27,7 @@
     </div>
 
     <div class="backFin" v-if="end"></div>
+    <div class="load" v-if="load"></div>
 
   </div>
 </template>
@@ -60,6 +61,7 @@ export default {
             final: null,
             finMessage: null,
             end: false,
+            load:false,
 
             latitude: null,
             longitude: null,
@@ -156,6 +158,8 @@ export default {
             },
 
             async finSend(){
+
+                this.load = true;
                 const file = document.querySelector(".input").files[0];
 
                 const formData = new FormData();
@@ -290,6 +294,14 @@ export default {
 
         z-index: 2;
         overflow-x: hidden;
+    }
+
+    .load {
+        background: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        z-index: 4;
     }
 
 </style>
