@@ -5,7 +5,7 @@
       <img :src="getPath()">
     </div>
     <div class="name">
-      <p>{{ item }}</p>
+      <p>{{ item.dragon }}</p>
     </div>
   </div>
   
@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     getPath() {
-      return `https://collector35.ru/api/profile/catched/${this.item}`
+      return `https://collector35.ru/api/profile/catched/${this.item.image}`
     }
   }
 
