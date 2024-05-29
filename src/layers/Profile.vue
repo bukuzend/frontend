@@ -3,7 +3,6 @@
     <BugerNav class="burgerNav"/>
     <div class="profileInf">
         <div class="profileIcon">
-            <!-- <img src="http://localhost:3000/api/profile/icon/download" class="image" alt="profileIcon"> -->
             <img :src="`https://collector35.ru/api/profile/icon`" class="image"> 
         </div>
         <div class="profileName">

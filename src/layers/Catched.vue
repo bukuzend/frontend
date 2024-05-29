@@ -59,12 +59,12 @@ export default {
             if(this.search === null) return this.items
             else return filtered
         },
-        // itemsWait() {
-        //     const filtered = this.itemsW.filter(item => {
-        //         return item.dragon.toLowerCase().includes(this.search.toLowerCase())})
-        //     if(this.search === null) return this.itemsW
-        //     else return filtered
-        // }
+        itemsWait() {
+            const filtered = this.itemsW.filter(item => {
+                return item.dragon.toLowerCase().includes(this.search.toLowerCase())})
+            if(this.search === null) return this.itemsW
+            else return filtered
+        }
     }
 
 }

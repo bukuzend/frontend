@@ -80,6 +80,20 @@ export default {
                     console.log(res);
                     this.$router.push("/login")
                 });
+        navigator.geolocation.getCurrentPosition(
+                pos => {
+                    this.latitude = pos.coords.latitude;
+                    this.longitude = pos.coords.longitude
+                },
+                err => {
+                    alert("Включите на вашем устройстве отслеживание геолокации")
+                })
+        navigator.mediaDevices.getUserMedia({video:true})
+                .then( stream => {
+                    console.log(stream.getTracks());
+                    stream.getTracks().forEach(track => track.stop())
+                }
+                ).catch(err => alert("Для обеспечения корректной работы, предоставьте вашему браузеру доступ к камере вашего телефона."))
                  
     },
    
@@ -137,25 +151,13 @@ export default {
             this.first = true
             this.end = false;
 
-            navigator.geolocation.getCurrentPosition(
-                pos => {
-                    
-                    this.latitude = pos.coords.latitude;
-                    this.longitude = pos.coords.longitude
-
-                    try{
-                        
-                        const data = URL.createObjectURL(e.target.files[0])
-                        this.img = data;
-                        this.show = true;
-                    } catch(err){
-                        console.log(err);
-                    }
-                },
-                err => {
-                    alert("Включите на устройстве геолокаицю")
-                })
-            },
+            try{      
+                const data = URL.createObjectURL(e.target.files[0])
+                this.img = data;
+                this.show = true;
+            } catch(err){
+                console.log(err);
+            }},
 
             async finSend(){
 
