@@ -6,7 +6,7 @@
         </div>
         <div class="dragonflys">
             <div class="dragon" v-for="item of itemsFil" :key="item.dragon"> 
-                <router-link class="link" :to="{path:`/library/${item.dragon}`}"><Dragonfly :item="item.dragon"/></router-link>
+                <router-link class="link" :to="{path:`/library/${item.dragon}`}"><Dragonfly :item="item.image"/></router-link>
             </div>
             <div class="waiting" v-for="item of itemsW" :key="item.name">
                 <router-link class="link" :to="{path:`/library/${item.name}`}"><DragonCompWait :item="item"/></router-link>
@@ -19,7 +19,7 @@
 <script>
 import axios from 'axios';
 import BugerNav from '../components/BugerNav.vue';
-import Dragonfly from '../components/DragonComp.vue';
+import Dragonfly from '../components/DragonCompCatched.vue';
 import DragonCompWait from '@/components/DragonCompWait.vue';
 import Url from '@/Url';
 
