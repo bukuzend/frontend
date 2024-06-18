@@ -3,7 +3,7 @@
         <div class="field">
             <div class="inputInf">
                 <input v-model="login" placeholder="Логин"/>
-                <input v-model="password" type="passowrd" placeholder="Пароль"/>
+                <input v-model="password" type="password" placeholder="Пароль"/>
                 <p class="error" v-if="error"> {{ errorMessage }}</p>
             </div>
             <div class="btn">
