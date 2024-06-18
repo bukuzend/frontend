@@ -18,7 +18,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import axios from 'axios';
 import BugerNav from '@/components/BugerNav.vue';
@@ -50,8 +49,6 @@ export default {
             this.fname = res.data[0].fname;
             this.sname = res.data[0].sname;
             this.lvl = res.data[0].lvl;
-            // this.emoji = res.data[0].emoji;
-
             console.log(res);
     },
     methods: {
@@ -64,9 +61,7 @@ export default {
                 }).catch(err => console.log(err.message))
             console.log(document.cookie.search("aToken")); 
         }
-
     }
-
 }
 </script>
 
@@ -78,7 +73,6 @@ export default {
         margin-right: 20px;
         z-index: 1;
     }
-
     .conteiner {
 
         width: 100vw;
@@ -103,27 +97,23 @@ export default {
         position: relative;
 
     }
-
     .image {
         width: 100%;
         height: 100%;
 
         border-radius: 100%;
     }
-
     .profileName p {
         display: flex;
         justify-content: center;
 
         font-size: 25px;
     }
-
     .exit {
         position: absolute;
         top: 23px;
         left: 20px;
     }
-
     .exitBtn {
         border: none;
         background: none;
